@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+
+    </title>
+</head>
+
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-12 text-center fixed-top" style="background-color: #e3f2fd;height:50px;">
+                <h5 style="color: #235a76;height:50px;margin-top:10px;font-style:oblique;" class="text-center">Result
+                    Management System
+                </h5>
+
+            </div>
+
+        </div>
+    </div>
+    <a type="button" href="/logout" style="margin-top: 60px;margin-left:1150px;"
+        class="btn btn-outline-danger">Logout</a>
+    <a type="button" href="/T-login" class="btn btn-light"
+        style="margin-top: 25px;margin-left:60px;font-size: 15px;color:darkviolet"><i
+            class="	fa fa-hand-o-left">back</i></a>
+
+    <a type="button" class="btn btn-light" href="/addrecord"
+        style="margin-top: 10px;margin-left:850px;font-size: 15px;color:rgb(86, 122, 103)"><i
+            class="fa fa-plus-square-o">Add Record</i></a>
+
+
+
+    <table class="table table-striped table-warn table table-hover" style="width: 1000px;margin-left:100px;">
+        <thead>
+            <tr>
+                <th>RollNo.</th>
+                <th>Name</th>
+                <th>Date Of Birth</th>
+                <th>Score</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%if (records.length>0){ %>
+                <% records.forEach(function(row){ %>
+                    <tr>
+                        <td>
+                            <%= row.name %>
+                        </td>
+                        <td>
+                            <%= row.rollno %>
+                        </td>
+                        <td>
+                            <%= row.date %>
+                        </td>
+                        <td>
+                            <%= row.score %>
+                        </td>
+                        <td><a href="/update/<%=row.id%>" class="bi bi-pen"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                href="/delete/<%=row.id%>" class="bi bi-trash"></a></span>
+                            </i></td>
+                    </tr>
+                    <% })}else{ %>
+                        <tr>
+                            <td colspan="4">No Record Found</td>
+
+                        </tr>
+                        <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
